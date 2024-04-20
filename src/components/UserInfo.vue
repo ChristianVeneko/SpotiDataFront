@@ -21,7 +21,7 @@ const getUserInfo = async () => {
     }
 }
 
-const fetchFromSpotifyAPI = async (endpoint: string, accessToken: string) => {
+const fetchFromSpotifyAPI = async (endpoint, accessToken) => {
     try {
         const response = await fetch(`https://api.spotify.com/${endpoint}`, {
             headers: {
