@@ -2,10 +2,14 @@
 import { ref } from 'vue';
 
 const props = defineProps({
-    accessToken: {
-        type: String,
-        required: true
-    }
+  accessToken: {
+    type: String,
+    required: true
+  },
+  refreshAccessToken: {
+    type: Function,
+    required: true
+  }
 });
 
 const getUserInfo = async () => {
@@ -17,7 +21,7 @@ const getUserInfo = async () => {
     }
 }
 
-const fetchFromSpotifyAPI = async (endpoint, accessToken) => {
+const fetchFromSpotifyAPI = async (endpoint: string, accessToken: string) => {
     try {
         const response = await fetch(`https://api.spotify.com/${endpoint}`, {
             headers: {
@@ -29,7 +33,7 @@ const fetchFromSpotifyAPI = async (endpoint, accessToken) => {
             return await response.json();
         } else if (response.status === 401) {
             // El token de acceso ha expirado, necesitamos refrescarlo
-            const newAccessToken = await refreshAccessToken();
+            const newAccessToken = await props.refreshAccessToken();
             if (newAccessToken) {
                 // Intentar la solicitud nuevamente con el token de acceso refrescado
                 return await fetchFromSpotifyAPI(endpoint, newAccessToken);

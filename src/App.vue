@@ -22,7 +22,8 @@ onMounted(() => {
 <template>
   <div id="app">
     <LoginForm v-if="!isLoggedIn" />
-    <UserInfo v-else :accessToken="accessToken" />
+    <UserInfo v-else :accessToken="accessToken" :refreshAccessToken="refreshAccessToken" />
+
   </div>
 </template>
 
