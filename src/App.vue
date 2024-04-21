@@ -6,63 +6,21 @@
       <UserInfo :accessToken="accessToken" :refreshAccessToken="refreshAccessToken" />
     </div>
     <div v-else>
-      <LoginForm />
+      <!-- Mostrar LoginForm solo cuando no se ha iniciado sesión -->
+      <LoginForm v-if="!isLoggedIn" />
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
+import { useAuth } from './useAuth';
 import LoginForm from './components/LoginForm.vue';
 import UserInfo from './components/UserInfo.vue';
 
 const appTitle = ref('SpotiData');
-const isLoading = ref(true);
-const isLoggedIn = ref(false);
-const accessToken = ref(null);
+const { isLoading, isLoggedIn, accessToken } = useAuth();
 
 const refreshAccessToken = async () => {
-  // Lógica para refreshAccessToken (igual que antes)
 }
-
-const checkAccessToken = async () => {
-  isLoading.value = true;
-
-  const storedAccessToken = localStorage.getItem('accessToken');
-
-  if (storedAccessToken) {
-    isLoggedIn.value = true;
-    accessToken.value = storedAccessToken;
-  } else {
-    try {
-      const response = await fetch('http://localhost:3000/api/token', {
-        credentials: 'include',
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        const accessToken = data.access_token;
-
-        if (accessToken) {
-          localStorage.setItem('accessToken', accessToken);
-          isLoggedIn.value = true;
-          this.accessToken = accessToken;
-        } else {
-          isLoggedIn.value = false;
-        }
-      } else {
-        isLoggedIn.value = false;
-      }
-    } catch (error) {
-      console.error('Error al obtener el token de acceso:', error);
-      isLoggedIn.value = false;
-    }
-  }
-
-  isLoading.value = false;
-}
-
-onMounted(() => {
-  checkAccessToken();
-});
 </script>

@@ -4,22 +4,34 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
-onMounted(() => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const accessToken = urlParams.get('access_token');
-  console.log(accessToken)
-  if (accessToken) {
-    localStorage.setItem('accessToken', accessToken);
-    router.push('/');
-  } else {
-    console.error('No se encontró el token de acceso en la URL');
+onMounted(async () => {
+  try {
+    const response = await fetch('http://localhost:3000/api/token', {
+      credentials: 'include',
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      const accessToken = data.access_token;
+
+      if (accessToken) {
+        localStorage.setItem('accessToken', accessToken);
+        router.push('/');
+      } else {
+        console.error('No se encontró el token de acceso en la respuesta del servidor');
+        router.push('/login');
+      }
+    } else {
+      console.error(`Error al obtener el token de acceso: ${response.status}`);
+      router.push('/login');
+    }
+  } catch (error) {
+    console.error('Error al obtener el token de acceso:', error);
     router.push('/login');
   }
-  router.push('/');
 });
 </script>
 
 <template>
-    <div>Cargando...</div>
-    <div>{{ accessToken }}</div>
+  <div>Cargando...</div>
 </template>
