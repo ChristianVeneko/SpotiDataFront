@@ -11,7 +11,6 @@ const routes = [
     path: '/auth-callback',
     component: AuthCallback,
   },
-  // Agrega aquí tus otras rutas
 ];
 
 const router = createRouter({

@@ -1,8 +1,9 @@
 <script setup>
-import { onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
+const emit = defineEmits(['updateIsLoggedIn']);
 
 onMounted(async () => {
   try {
@@ -19,19 +20,22 @@ onMounted(async () => {
         router.push('/');
       } else {
         console.error('No se encontró el token de acceso en la respuesta del servidor');
-        router.push('/login');
+        emit('updateIsLoggedIn', false);
+        router.push('/');
       }
     } else {
       console.error(`Error al obtener el token de acceso: ${response.status}`);
-      router.push('/login');
+      emit('updateIsLoggedIn', false);
+      router.push('/');
     }
   } catch (error) {
     console.error('Error al obtener el token de acceso:', error);
-    router.push('/login');
+    emit('updateIsLoggedIn', false);
+    router.push('/');
   }
 });
 </script>
 
 <template>
-  <div>Cargando...</div>
+  <h1>AAAAAAAAAAAAAAAAAAAAAAAAAA</h1>
 </template>
