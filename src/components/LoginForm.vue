@@ -1,6 +1,6 @@
 <template>
     <button @click="initiateSpotifyLogin">Iniciar sesión</button>
-  </template>
+</template>
   
   <script setup>
   const initiateSpotifyLogin = () => {
