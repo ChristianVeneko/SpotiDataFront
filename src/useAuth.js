@@ -1,5 +1,5 @@
 import { ref, onMounted } from 'vue';
-const API_URL = import.meta.env.API_URL
+const API_URL = import.meta.env.VITE_API_URL
 export function useAuth() {
   const isLoading = ref(true);
   const isLoggedIn = ref(false);

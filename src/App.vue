@@ -9,7 +9,7 @@ import UserInfo from './components/UserInfo.vue';
 import AuthCallback from './components/AuthCallback.vue';
 import Header from './components/Header.vue';
 const router = useRouter();
-const API_URL = import.meta.env.API_URL
+const API_URL = import.meta.env.VITE_API_URL
 
 const appTitle = ref('SpotiData');
 const { isLoading, isLoggedIn, accessToken } = useAuth();
