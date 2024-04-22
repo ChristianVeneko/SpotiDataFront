@@ -8,7 +8,8 @@
 </template>
   
   <script setup>
+  const API_URL = import.meta.env.API_URL
   const initiateSpotifyLogin = () => {
-    window.location.href = 'http://localhost:3000/login';
+    window.location.href = `${API_URL}/login`;
   }
   </script>

@@ -1,13 +1,13 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
-
+const API_URL = import.meta.env.API_URL
 const router = useRouter();
 const emit = defineEmits(['updateIsLoggedIn']);
 
 onMounted(async () => {
   try {
-    const response = await fetch('http://localhost:3000/api/token', {
+    const response = await fetch(`${API_URL}/api/token`, {
       credentials: 'include',
     });
 
