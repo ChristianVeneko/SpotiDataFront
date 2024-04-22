@@ -24,16 +24,22 @@ const reLogin = async () => {
 </script>
 
 <template>
-  <div id="app">
-    <AuthCallback @updateIsLoggedIn="updateIsLoggedIn" v-if="$route.path === '/auth-callback'" />
-    <Header></Header>
-    <div v-if="isLoading">Cargando...</div>
-    <div v-else-if="isLoggedIn">
-      <UserInfo :accessToken="accessToken" :refreshAccessToken="reLogin" />
+
+  <body>
+    <div id="app">
+      <AuthCallback @updateIsLoggedIn="updateIsLoggedIn" v-if="$route.path === '/auth-callback'" />
+      <Header></Header>
+      <div id="container">
+        <div v-if="isLoading">Cargando...</div>
+        <div v-else-if="isLoggedIn">
+         <!-- <UserInfo :accessToken="accessToken" :refreshAccessToken="reLogin" /> --> 
+        </div>
+        <div v-else>
+          <!-- Mostrar LoginForm solo cuando no se ha iniciado sesión -->
+          <LoginForm v-if="!isLoggedIn" />
+        </div>
+      </div>
     </div>
-    <div v-else>
-      <!-- Mostrar LoginForm solo cuando no se ha iniciado sesión -->
-      <LoginForm v-if="!isLoggedIn" />
-    </div>
-  </div>
+  </body>
+
 </template>
