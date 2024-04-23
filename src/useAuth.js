@@ -1,5 +1,5 @@
 import { ref, onMounted } from 'vue';
-const API_URL = import.meta.env.VITE_API_URL
+
 export function useAuth() {
   const isLoading = ref(true);
   const isLoggedIn = ref(false);
@@ -13,37 +13,13 @@ export function useAuth() {
         }
       });
 
-      if (response.ok) {
-
-        return true;
-      } else {
-
-        return false;
-      }
+      return response.ok;
     } catch (error) {
       console.error('Error al validar el token de acceso:', error);
       return false;
     }
   }
 
-  const fetchAccessToken = async () => {
-    try {
-      const response = await fetch(`${API_URL}/api/token`, {
-        credentials: 'include',
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        return data.access_token;
-      } else {
-        return null;
-      }
-    } catch (error) {
-      console.error('Error al obtener el token de acceso:', error);
-      return null;
-    }
-  }
-  
   const checkAccessToken = async () => {
     isLoading.value = true;
 
@@ -56,27 +32,10 @@ export function useAuth() {
         isLoggedIn.value = true;
         accessToken.value = storedAccessToken;
       } else {
-        localStorage.removeItem('accessToken');
-        const newAccessToken = await fetchAccessToken();
-
-        if (newAccessToken) {
-          localStorage.setItem('accessToken', newAccessToken);
-          isLoggedIn.value = true;
-          accessToken.value = newAccessToken;
-        } else {
-          isLoggedIn.value = false;
-        }
-      }
-    } else {
-      const newAccessToken = await fetchAccessToken();
-
-      if (newAccessToken) {
-        localStorage.setItem('accessToken', newAccessToken);
-        isLoggedIn.value = true;
-        accessToken.value = newAccessToken;
-      } else {
         isLoggedIn.value = false;
       }
+    } else {
+      isLoggedIn.value = false;
     }
 
     isLoading.value = false;
