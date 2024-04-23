@@ -12,7 +12,7 @@ export function useAuth() {
           'Authorization': `Bearer ${token}`
         }
       });
-
+      console.log(response.json())
       return response.ok;
     } catch (error) {
       console.error('Error al validar el token de acceso:', error);
@@ -29,6 +29,7 @@ export function useAuth() {
       const isTokenValid = await validateAccessToken(storedAccessToken);
 
       if (isTokenValid) {
+        console.log('ta bueno el token')
         isLoggedIn.value = true;
         accessToken.value = storedAccessToken;
       } else {
