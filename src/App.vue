@@ -15,7 +15,7 @@ import ResultsComponent from './components/ResultsComponent.vue'
 const router = useRouter();
 const API_URL = import.meta.env.VITE_API_URL
 
-const appTitle = ref('SpotiData');
+const appTitle = ref('Chartify');
 
 const chartData = ref([]);
 const dataType = ref('artists');
