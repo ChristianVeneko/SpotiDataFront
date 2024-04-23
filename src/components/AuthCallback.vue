@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -19,6 +19,8 @@ onMounted(async () => {
       if (access_token) {
         localStorage.setItem('accessToken', access_token);
         localStorage.setItem('refreshToken', refresh_token);
+
+        // Redirigir al usuario después de almacenar los tokens
         window.location.href = redirect;
       } else {
         console.error('No se encontró el token de acceso en la respuesta del servidor');
