@@ -24,7 +24,13 @@
   const topMusic = ref('artists');
   const timeRange = ref('short_term');
   
+  const emit = defineEmits(['chartData']);
   const showChart = () => {
-    
+    emit('chartData', {
+      dataTime: timeRange.value,
+      dataTopMusic: topMusic.value,
+      dataQuantity: 50,
+      dataType: topMusic.value,
+    });
   };
   </script>
