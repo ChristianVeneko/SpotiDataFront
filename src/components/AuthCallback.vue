@@ -1,6 +1,7 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { onMounted } from 'vue';
 import { useRouter } from 'vue-router';
+
 const API_URL = import.meta.env.VITE_API_URL;
 const router = useRouter();
 const emit = defineEmits(['updateIsLoggedIn']);
@@ -13,10 +14,12 @@ onMounted(async () => {
 
     if (response.ok) {
       const data = await response.json();
-      const accessToken = data.access_token;
+      const { access_token, refresh_token } = data;
 
-      if (accessToken) {
-        localStorage.setItem('accessToken', accessToken);
+      if (access_token) {
+        localStorage.setItem('accessToken', access_token);
+        localStorage.setItem('refreshToken', refresh_token);
+        emit('updateIsLoggedIn', true);
         router.push('/');
       } else {
         console.error('No se encontró el token de acceso en la respuesta del servidor');
@@ -24,16 +27,17 @@ onMounted(async () => {
         router.push('/');
       }
     } else {
-      console.error(`Error al obtener el token de acceso: ${response.status}`);
+      console.error(`Error al obtener los tokens: ${response.status}`);
       emit('updateIsLoggedIn', false);
       router.push('/');
     }
   } catch (error) {
-    console.error('Error al obtener el token de acceso:', error);
+    console.error('Error al obtener los tokens:', error);
     emit('updateIsLoggedIn', false);
     router.push('/');
   }
 });
+</script>
 </script>
 
 <template>
