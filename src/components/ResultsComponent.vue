@@ -3,7 +3,7 @@
       <div v-if="type === 'artist'">
         <div v-for="artist in data" :key="artist.name" class="artist-card">
           <div class="artist-image">
-            <img :src="artist.image" :alt="artist.name + ' photo'">
+             <a :href="`${artist.url}`"><img :src="artist.image" :alt="artist.name + ' photo'"></a>
           </div>
           <div>{{ artist.name }}</div>
         </div>
