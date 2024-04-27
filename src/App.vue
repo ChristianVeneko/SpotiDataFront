@@ -37,6 +37,7 @@ const getChart = async (data) => {
   } else {
     dataType.value = 'song';
     const topTracks = await music.value.getTopMusic(data.dataTime, data.dataQuantity, data.dataType);
+    console.log(topTracks)
     chartData.value = topTracks;
   }
 };

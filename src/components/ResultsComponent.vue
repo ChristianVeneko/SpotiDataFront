@@ -19,11 +19,12 @@
           <div class="info">
             <h2 class="name">{{ song.title }}</h2>
             <p class="artists">{{ song.artists.join(', ') }}</p>
+            <a :href="`${song.url}`"><img class="spotify-logo" src="https://static.vecteezy.com/system/resources/previews/023/986/728/original/spotify-logo-spotify-logo-transparent-spotify-icon-transparent-free-free-png.png" alt="Spotify logo"></a>
           </div>
         </div>
       </div>
     </div>
-  </template>
+  </template> 
   
   <script setup>
   defineProps({

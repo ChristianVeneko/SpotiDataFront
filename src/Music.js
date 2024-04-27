@@ -82,12 +82,14 @@ export class Music {
       let artists = this.extractArtists(song.artists);
       let albumName = song.album.name;
       let cover = song.album.images[2].url;
+      let url = song.external_urls.spotify;
       songs.push({
         index: i,
         cover: cover,
         albumName: albumName,
         artists: artists,
         title: title,
+        url: url
       });
       i++;
     });
