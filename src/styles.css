@@ -23,29 +23,7 @@ h1.title {
   padding: 20px;
 }
 
-.logout-button {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  background-color: #ff3d00;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.logout-button:hover {
-  background-color: #d32f2f;
-}
-
-h1 {
-  margin: 0;
-}
-
 #formulario {
-  align-items: center;
   max-width: 500px;
   margin: 30px auto;
   padding: 20px;
@@ -89,32 +67,7 @@ button:hover {
   text-align: center;
 }
 
-#loginform {
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: #f5f5f5;
-  border-radius: 10px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-}
-
-#loginform .logintext {
-  font-size: 1.2rem;
-}
-
-#loginform .loginbtn {
-  font-size: 1rem;
-}
-
-button:focus {
-  outline: none;
-}
-
-button:active {
-  transform: scale(0.95);
-}
-
-.song-card {
+.song-card{
   display: flex;
   align-items: center;
   background-color: #f5f5f5;
@@ -125,15 +78,16 @@ button:active {
   border-radius: 5px;
 }
 
+
 .index {
   flex: 0.2;
 }
 
-.cover {
+.cover, .artist-image {
   flex: 0.3;
 }
 
-.cover img {
+.cover img, .artist-image img {
   max-width: 100%;
   height: auto;
   border-radius: 5px;
@@ -150,11 +104,6 @@ button:active {
   margin: 0;
 }
 
-.artists {
-  font-size: 14px;
-  color: #888;
-  margin: 0;
-}
 
 .artist-card {
   display: flex;
@@ -167,81 +116,34 @@ button:active {
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-}
-
-.artist-card {
   width: calc(33.33% - 20px);
   display: inline-block;
   vertical-align: top;
   box-sizing: border-box;
   padding: 10px;
+  margin-right: 6px;
+  margin-left: 6px ;
 }
 
-.artist-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 5px;
-}
-
-.artist-name {
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-/* Responsive Styles */
-@media only screen and (max-width: 600px) {
-  header {
-    padding: 10px;
+/* Estilo para dispositivos móviles */
+@media (max-width: 600px) {
+  .artist-card {
+    width: 46%; 
   }
+}
 
-  h1.title {
-    font-size: 2rem;
-  }
 
+
+@media screen and (max-width: 600px) {
   #container {
-    padding: 10px;
+      padding: 10px;
   }
 
-  .logout-button {
-    top: 5px;
-    right: 5px;
-    padding: 8px 15px;
-  }
-
-  #formulario {
-    margin: 20px auto;
-    padding: 10px;
+  #formulario, .song-card, .artist-card {
+      padding: 10px;
   }
 
   select {
-    width: 70%;
-  }
-
-  .artist-card {
-    width: calc(50% - 20px);
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  #formulario {
-    margin: 10px auto;
-    padding: 5px;
-  }
-
-  .song-card {
-    flex-direction: column;
-  }
-
-  .index,
-  .cover {
-    flex: none;
-    width: 100%;
-  }
-
-  .info {
-    flex: none;
-    width: 100%;
-    text-align: center;
+      width: 60%;
   }
 }
