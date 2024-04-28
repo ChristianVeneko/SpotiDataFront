@@ -1,5 +1,5 @@
 <template>
-    <div v-for="song in songs" :key="song.title" class="song-card">
+   <div v-for="(song, index) in songs" :key="song.index" class="song-card">
       <div class="index">
         <h2>{{ song.index }}</h2>
       </div>

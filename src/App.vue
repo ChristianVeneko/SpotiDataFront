@@ -12,16 +12,12 @@ import MusicForm from './components/MusicForm.vue';
 import ResultsComponent from './components/ResultsComponent.vue'
 import Loading from './components/Loading.vue';
 
-const router = useRouter();
 const API_URL = import.meta.env.VITE_API_URL
 
-const appTitle = ref('Chartify');
 
 const chartData = ref([]);
 const dataType = ref('artists');
 const music = ref(null);
-
-
 
 const { isLoading, isLoggedIn, accessToken } = useAuth();
 
