@@ -2,13 +2,14 @@ body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f7f7f7;
+  background-color: #121212; /* Fondo oscuro */
+  color: #fff; /* Texto blanco */
   min-height: 100vh;
 }
 
 header {
-  background-color: #1db954;
-  color: white;
+  background-color: #191414;
+  color: #fff;
   padding: 20px;
   text-align: center;
 }
@@ -28,7 +29,7 @@ h1.title {
   max-width: 500px;
   margin: 30px auto;
   padding: 30px;
-  background-color: #f5f5f5;
+  background-color: #282828;
   border-radius: 10px;
   box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
 }
@@ -43,7 +44,7 @@ label {
   margin-bottom: 10px;
   font-size: 16px;
   font-weight: bold;
-  color: #333;
+  color: #fff; 
 }
 
 select {
@@ -54,8 +55,8 @@ select {
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   font-size: 16px;
-  color: #333;
-  background-color: #f5f5f5;
+  color: #fff;
+  background-color: #333; 
 }
 
 button {
@@ -86,17 +87,18 @@ input[type="radio"] + label {
   padding: 10px 20px;
   margin-right: 10px;
   margin-bottom: 20px;
-  background-color: #f5f5f5;
+  background-color: #282828; 
+  color: #fff;
   border-radius: 25px;
   cursor: pointer;
   transition: background-color 0.3s ease, border 0.3s ease;
-  border: 1px solid #ccc; 
+  border: 1px solid #333;
 }
 
 input[type="radio"]:checked + label {
   background-color: #1ed760;
-  color: #fff;
-  border: none;
+  border-color: #1ed760; 
+  color: #fff; 
 }
 
 #results {
@@ -107,11 +109,12 @@ input[type="radio"]:checked + label {
 .song-card{
   display: flex;
   align-items: center;
-  background-color: #f5f5f5;
+  background-color: #282828; 
+  color: #fff;
   padding: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
   margin-bottom: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #333;
   border-radius: 5px;
 }
 
@@ -149,11 +152,12 @@ input[type="radio"]:checked + label {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  background-color: #f5f5f5;
+  background-color: #282828;
+  color: #fff;
   padding: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
   margin-bottom: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #333;
   border-radius: 5px;
   width: calc(33.33% - 20px);
   display: inline-block;

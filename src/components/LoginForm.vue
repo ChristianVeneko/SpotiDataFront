@@ -1,8 +1,8 @@
 <template>
   <div id="loginform">
     <div class="login-container">
-      <h2 class="login-title">Login with Spotify</h2>
-      <p class="login-text">Please log in with your Spotify account to see your charts.</p>
+      <h2 class="login-title">See your own charts</h2>
+      <p class="login-text">See your top tracks, artists and easily switch between three different timeframes. Your information gets refreshed about once a day..</p>
       <div class="button-container">
         <button class="login-btn" @click="initiateSpotifyLogin">
           <span>Log in with Spotify</span>
@@ -17,7 +17,7 @@
   max-width: 500px;
   margin: 30px auto;
   padding: 30px;
-  background-color: #f5f5f5;
+  background-color: #282828;
   border-radius: 10px;
   box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
 }
@@ -29,13 +29,13 @@
 .login-title {
   font-size: 24px;
   font-weight: bold;
-  color: #333;
+  color: #ffffff;
   margin-bottom: 20px;
 }
 
 .login-text {
   font-size: 16px;
-  color: #555;
+  color: #ffffff;
   margin-bottom: 30px;
 }
 

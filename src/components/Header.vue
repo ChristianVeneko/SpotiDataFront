@@ -1,6 +1,6 @@
 <template>
     <header>
-      <h1 class="title">Spotify Charts viewer</h1>
+      <h1 class="title">Chartify Data</h1>
     </header>
 </template>
 
