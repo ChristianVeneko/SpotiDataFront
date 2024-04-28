@@ -6,7 +6,6 @@ import { Music } from './Music';
 
 //components
 import LoginForm from './components/LoginForm.vue';
-import UserInfo from './components/UserInfo.vue';
 import AuthCallback from './components/AuthCallback.vue';
 import Header from './components/Header.vue';
 import MusicForm from './components/MusicForm.vue';
@@ -64,7 +63,6 @@ const reLogin = async () => {
         <div v-else-if="isLoggedIn">
         <MusicForm @chartData="getChart"></MusicForm>
         <ResultsComponent :data="chartData" :type="dataType" />
-         <!-- <UserInfo :accessToken="accessToken" :refreshAccessToken="reLogin" /> --> 
         </div>
         <div v-else>
           <!-- Mostrar LoginForm solo cuando no se ha iniciado sesión -->
