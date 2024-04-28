@@ -24,7 +24,3 @@ onMounted(() => {
   window.location.href = '/';
 });
 </script>
-
-<template>
-  <h1>AAAAAAAAAAAAAAAAAAAAAAAAAA</h1>
-</template>
