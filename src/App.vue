@@ -10,6 +10,7 @@ import AuthCallback from './components/AuthCallback.vue';
 import Header from './components/Header.vue';
 import MusicForm from './components/MusicForm.vue';
 import ResultsComponent from './components/ResultsComponent.vue'
+import Loading from './components/Loading.vue';
 
 const router = useRouter();
 const API_URL = import.meta.env.VITE_API_URL
@@ -59,7 +60,7 @@ const reLogin = async () => {
       <AuthCallback @updateIsLoggedIn="updateIsLoggedIn" v-if="$route.path === '/auth-callback'" />
       <Header></Header>
       <div id="container">
-        <div v-if="isLoading">Cargando...</div>
+        <div v-if="isLoading"><Loading/></div>
         <div v-else-if="isLoggedIn">
         <MusicForm @chartData="getChart"></MusicForm>
         <ResultsComponent :data="chartData" :type="dataType" />

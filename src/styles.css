@@ -19,10 +19,19 @@ h1.title {
   margin: 0;
 }
 
+#container #loginform{
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 8rem;
+  padding: 20px;
+  padding-top: 20px;
+}
+
 #container {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+  padding-top: 20px;
 }
 
 #formulario {
@@ -92,7 +101,7 @@ input[type="radio"] + label {
   border-radius: 25px;
   cursor: pointer;
   transition: background-color 0.3s ease, border 0.3s ease;
-  border: 1px solid #333;
+  border: 1px solid #bebebe;
 }
 
 input[type="radio"]:checked + label {
@@ -166,6 +175,7 @@ input[type="radio"]:checked + label {
   padding: 10px;
   margin-right: 6px;
   margin-left: 6px ;
+  margin-bottom: 20px;
 }
 
 .spotify-link {
