@@ -2,7 +2,8 @@
   <div id="loginform">
     <div class="login-container">
       <h2 class="login-title">See your own charts</h2>
-      <p class="login-text">See your top tracks, artists and easily switch between three different timeframes. Your information gets refreshed about once a day..</p>
+      <p class="login-text">Discover your top artists and songs on Spotify with this app. Select if you want to view your most listened to artists or tracks, and choose a time range - last 4 weeks, 6 months, or all-time. Connect your Spotify account to see your personalized music tastes displayed in a sleek, card-based interface with album covers and links to listen on Spotify.
+</p>
       <div class="button-container">
         <button class="login-btn" @click="initiateSpotifyLogin">
           <span>Log in with Spotify</span>
